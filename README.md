@@ -37,7 +37,7 @@ Repozitorij: https://github.com/{študent}/klepet
 
 ## I. Hitra zasebna sporočila
 
-Spletna klepetalnica omogoča pošiljanje zasebnih sporočil le izbranemu uporabniku z uporabo ukaza `/zasebno`. Dopolnite implementacijo tako, da se ob pritisku na vzdevek uporabnika kanala izpisanem na desni strani klepetalnice v vnosno polje za sporočila doda predloga `/zasebno "{vzdevek}" `, kjer je _{vzdevek}_ vzdevek izbranega uporabnika. Za tem naj vnosno polje prevzame fokus spletne strani.
+Spletna klepetalnica omogoča pošiljanje zasebnih sporočil le izbranemu uporabniku z uporabo ukaza `/zasebno`. Dopolnite implementacijo tako, da se ob pritisku na vzdevek uporabnika kanala izpisanem na desni strani klepetalnice v vnosno polje za sporočila doda predloga `/zasebno "{vzdevek}" `, kjer je _{vzdevek}_ vzdevek izbranega uporabnika. Za tem naj vnosno polje prevzame fokus spletne strani. Poleg tega poskrbite, da se miškin kazalec nad seznamom vzdevkov uporabnikov spremeni v kazalec za povezavo, dočim naj se ozadje trenutno izbranega uporabnika obarva sivo. Pri tem se zgledujte po implementaciji seznama kanalov na desni strani klepetalnice.
 
 ###### Kako naj rešujem?
 
@@ -59,7 +59,7 @@ I. naloga: https://github.com/{študent}/klepet/compare/{commit}
 
 ## II. Deljenje slikovnih datotek
 
-Dopolnite implementacijo spletne klepetalnice tako, da bo omogočala deljenje slikovnih datotek dostopnih preko spleta. V ta namen po vnosu sporočila uporabnika preverite ali le-to vsebuje povezave na slikovne datoteke. Predpostavite, da so to povezave, ki se začnejo z nizom `http://` ali `https://` ter končajo z nizom `.jpg`, `.png` ali `.gif`. V kolikor take povezave najdete poleg sporočila na kanalu dodajte ustrezno število HTML elementov `<img>` s povezavami na slikovne datoteke. Širina prikazanih slik naj bo `200px`, dočim naj bodo `20px` zamaknjene od levega roba.
+Dopolnite implementacijo spletne klepetalnice tako, da bo omogočala deljenje slikovnih datotek dostopnih preko spleta. V ta namen po vnosu sporočila uporabnika preverite ali le-to vsebuje povezave na slikovne datoteke. Predpostavite, da so to povezave, ki se začnejo z nizom `http://` ali `https://` ter končajo z nizom `.jpg`, `.png` ali `.gif`. V kolikor take povezave najdete poleg sporočila na kanalu dodajte ustrezno število HTML elementov `<img>` s povezavami na slikovne datoteke. Širina prikazanih slik naj bo `200px`, dočim naj bodo `20px` zamaknjene od levega roba. Pazite, da bodo slike prikazane tako pošiljatelju kot tudi prejemnikom.
 
 ###### Kako naj rešujem?
 
@@ -81,7 +81,7 @@ II. naloga: https://github.com/{študent}/klepet/compare/{commit}
 
 ## III. Izmenjava YouTube posnetkov
 
-Dopolnite implementacijo spletne klepetalnice tako, da bo omogočala enostavno izmenjavo in predvajanje YouTube posnetkov. V ta namen po vnosu sporočila uporabnika preverite ali le-to vsebuje povezave oblike `https://www.youtube.com/watch?v={video}`, kjer je _{video}_ identifikator YouTube posnetka. V kolikor take povezave najdete poleg sporočila na kanalu dodajte ustrezno število HTML elementov `<iframe src="https://www.youtube.com/embed/{video}" allowfullscreen></iframe>` s povezavami na ustrezne YouTube posnetke. Širina in višina prikazov naj bosta `200px` in `150px`, dočim naj bodo `20px` zamaknjeni od levega roba.
+Dopolnite implementacijo spletne klepetalnice tako, da bo omogočala enostavno izmenjavo in predvajanje YouTube posnetkov. V ta namen po vnosu sporočila uporabnika preverite ali le-to vsebuje povezave oblike `https://www.youtube.com/watch?v={video}`, kjer je _{video}_ identifikator YouTube posnetka. V kolikor take povezave najdete poleg sporočila na kanalu dodajte ustrezno število HTML elementov `<iframe src="https://www.youtube.com/embed/{video}" allowfullscreen></iframe>` s povezavami na ustrezne YouTube posnetke. Širina in višina prikazov naj bosta `200px` in `150px`, dočim naj bodo `20px` zamaknjeni od levega roba. Pazite, da bodo prikazi vidni tako pošiljatelju kot tudi prejemnikom.
 
 ###### Kako naj rešujem?
 
