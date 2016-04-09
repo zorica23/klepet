@@ -94,6 +94,10 @@ $(document).ready(function() {
     });
   });
 
+  //socket.on('dregljaj', function(kanali) {
+    
+  //}
+
   socket.on('uporabniki', function(uporabniki) {
     $('#seznam-uporabnikov').empty();
     for (var i=0; i < uporabniki.length; i++) {
