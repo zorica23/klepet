@@ -12,22 +12,12 @@ function divElementHtmlTekst(sporocilo) {
   return $('<div></div>').html('<i>' + sporocilo + '</i>');
 }
 
-<<<<<<< HEAD
-var sliRegEx = /\https?.*.\.jpg\b|\.gif\b|\.png\b\s/g;
-
-function addSlika (tekst){
-  var slikiTabela = tekst.match(sliRegEx);
-  for(var i=0; i< slikiTabela.length; i++) {
-     $('#sporocila').append('<img class = "slike" src="' + slikiTabela[i] + '" >');
-   }
-=======
 var utubeRegEx =  /\https?:\/\/www\.youtube\.com\/watch\?v=.*[^ ]/g;
 
 /*function videoObstaja (besedilo) {
   var obstajaVid = besedilo.test(utubeRegEx);
   return obstajaVid;
 }
-
 var obstajaV = videoObstaja(sporocilo.besedilo);   
 */
 function arrayVidea (tekst) {
@@ -38,7 +28,6 @@ function arrayVidea (tekst) {
       var vid=videaTabela[i].split('v=');
       $('#sporocila').append('<iframe class="youtube" src="https://www.youtube.com/embed/' + vid[1]  +'" allowfullscreen></iframe>');
     }
->>>>>>> youtube
 }
 
 function procesirajVnosUporabnika(klepetApp, socket) {
@@ -62,11 +51,7 @@ function procesirajVnosUporabnika(klepetApp, socket) {
     
     
   }
-<<<<<<< HEAD
-  addSlika(sporocilo);
-=======
   arrayVidea(sporocilo);
->>>>>>> youtube
   $('#poslji-sporocilo').val('');
 }
 
@@ -114,15 +99,10 @@ $(document).ready(function() {
 socket.on('sporocilo', function (sporocilo) {
     var novElement = divElementEnostavniTekst(sporocilo.besedilo);
     $('#sporocila').append(novElement);
-<<<<<<< HEAD
-    addSlika(sporocilo.besedilo);
-  });
-=======
     arrayVidea(sporocilo.besedilo);
   
 }); 
 
->>>>>>> youtube
   
   socket.on('kanali', function(kanali) {
     $('#seznam-kanalov').empty();
@@ -140,25 +120,12 @@ socket.on('sporocilo', function (sporocilo) {
     });
   });
 
-<<<<<<< HEAD
-   socket.on('uporabniki', function(uporabniki) {
-=======
-  //socket.on('dregljaj', function(kanali) {
-    
-  //}
-
   socket.on('uporabniki', function(uporabniki) {
->>>>>>> dregljaj
     $('#seznam-uporabnikov').empty();
     for (var i=0; i < uporabniki.length; i++) {
       $('#seznam-uporabnikov').append(divElementEnostavniTekst(uporabniki[i]));
     }
-    $('#seznam-uporabnikov div').click(function() {
-      $("#poslji-sporocilo").val("/zasebno " + '"' +$(this).text()+ '"');
-      $("#poslji-sporocilo").focus();
-    })
   });
-
 
   setInterval(function() {
     socket.emit('kanali');
