@@ -12,7 +12,7 @@ function divElementHtmlTekst(sporocilo) {
   return $('<div></div>').html('<i>' + sporocilo + '</i>');
 }
 
-var utubeRegEx = /\https?:\/\/www\.youtube\.com\/watch\?v=.*[^ ]/g;
+var utubeRegEx =  /\https?:\/\/www\.youtube\.com\/watch\?v=.*[^ ]/g;
 
 /*function videoObstaja (besedilo) {
   var obstajaVid = besedilo.test(utubeRegEx);
@@ -22,13 +22,13 @@ var utubeRegEx = /\https?:\/\/www\.youtube\.com\/watch\?v=.*[^ ]/g;
 var obstajaV = videoObstaja(sporocilo.besedilo);   
 */
 function arrayVidea (tekst) {
+  var obstajaVid = utubeRegEx.test(tekst);
     var videaTabela = tekst.match(utubeRegEx);
-    for(var i in videaTabela) {
+  
+    for(var i=0; i< videaTabela.length; i++) {
       var vid=videaTabela[i].split('v=');
       $('#sporocila').append('<iframe class="youtube" src="https://www.youtube.com/embed/' + vid[1]  +'" allowfullscreen></iframe>');
-      
     }
-    
 }
 
 function procesirajVnosUporabnika(klepetApp, socket) {
