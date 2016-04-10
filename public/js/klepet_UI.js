@@ -12,6 +12,7 @@ function divElementHtmlTekst(sporocilo) {
   return $('<div></div>').html('<i>' + sporocilo + '</i>');
 }
 
+<<<<<<< HEAD
 var sliRegEx = /\https?.*.\.jpg\b|\.gif\b|\.png\b\s/g;
 
 function addSlika (tekst){
@@ -19,13 +20,33 @@ function addSlika (tekst){
   for(var i=0; i< slikiTabela.length; i++) {
      $('#sporocila').append('<img class = "slike" src="' + slikiTabela[i] + '" >');
    }
+=======
+var utubeRegEx =  /\https?:\/\/www\.youtube\.com\/watch\?v=.*[^ ]/g;
+
+/*function videoObstaja (besedilo) {
+  var obstajaVid = besedilo.test(utubeRegEx);
+  return obstajaVid;
+}
+
+var obstajaV = videoObstaja(sporocilo.besedilo);   
+*/
+function arrayVidea (tekst) {
+  var obstajaVid = utubeRegEx.test(tekst);
+    var videaTabela = tekst.match(utubeRegEx);
+  
+    for(var i=0; i< videaTabela.length; i++) {
+      var vid=videaTabela[i].split('v=');
+      $('#sporocila').append('<iframe class="youtube" src="https://www.youtube.com/embed/' + vid[1]  +'" allowfullscreen></iframe>');
+    }
+>>>>>>> youtube
 }
 
 function procesirajVnosUporabnika(klepetApp, socket) {
   var sporocilo = $('#poslji-sporocilo').val();
   sporocilo = dodajSmeske(sporocilo);
   var sistemskoSporocilo;
-
+  
+  
   if (sporocilo.charAt(0) == '/') {
     sistemskoSporocilo = klepetApp.procesirajUkaz(sporocilo);
     if (sistemskoSporocilo) {
@@ -35,9 +56,17 @@ function procesirajVnosUporabnika(klepetApp, socket) {
     sporocilo = filtirirajVulgarneBesede(sporocilo);
     klepetApp.posljiSporocilo(trenutniKanal, sporocilo);
     $('#sporocila').append(divElementEnostavniTekst(sporocilo));
+    
     $('#sporocila').scrollTop($('#sporocila').prop('scrollHeight'));
+    //$('#sporocila').append(arrayVidea(sporocilo));
+    
+    
   }
+<<<<<<< HEAD
   addSlika(sporocilo);
+=======
+  arrayVidea(sporocilo);
+>>>>>>> youtube
   $('#poslji-sporocilo').val('');
 }
 
@@ -81,12 +110,19 @@ $(document).ready(function() {
     $('#kanal').text(trenutniVzdevek + " @ " + trenutniKanal);
     $('#sporocila').append(divElementHtmlTekst('Sprememba kanala.'));
   });
-
-  socket.on('sporocilo', function (sporocilo) {
+  
+socket.on('sporocilo', function (sporocilo) {
     var novElement = divElementEnostavniTekst(sporocilo.besedilo);
     $('#sporocila').append(novElement);
+<<<<<<< HEAD
     addSlika(sporocilo.besedilo);
   });
+=======
+    arrayVidea(sporocilo.besedilo);
+  
+}); 
+
+>>>>>>> youtube
   
   socket.on('kanali', function(kanali) {
     $('#seznam-kanalov').empty();
