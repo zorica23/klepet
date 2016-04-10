@@ -16,7 +16,7 @@ var sliRegEx = /\https?.*.\.jpg\b|\.gif\b|\.png\b\s/g;
 
 function addSlika (tekst){
   var slikiTabela = tekst.match(sliRegEx);
-  for(var i in slikiTabela) {
+  for(var i=0; i< slikiTabela.length; i++) {
      $('#sporocila').append('<img class = "slike" src="' + slikiTabela[i] + '" >');
    }
 }
