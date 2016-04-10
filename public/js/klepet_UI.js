@@ -140,7 +140,15 @@ socket.on('sporocilo', function (sporocilo) {
     });
   });
 
+<<<<<<< HEAD
    socket.on('uporabniki', function(uporabniki) {
+=======
+  //socket.on('dregljaj', function(kanali) {
+    
+  //}
+
+  socket.on('uporabniki', function(uporabniki) {
+>>>>>>> dregljaj
     $('#seznam-uporabnikov').empty();
     for (var i=0; i < uporabniki.length; i++) {
       $('#seznam-uporabnikov').append(divElementEnostavniTekst(uporabniki[i]));
